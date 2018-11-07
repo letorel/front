@@ -1,0 +1,6 @@
+div.home {
+    background-color: rgb(92, 64, 28);
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
