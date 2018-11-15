@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+
 import './style.css';
 
 /* class Card extends React.Component {
@@ -30,7 +31,7 @@ const Header = (props) => (
             Details
         </NavLink>
         <NavLink
-            exact 
+            exact
             to="/"
             activeStyle={{
                 fontWeight: 'bold',

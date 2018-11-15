@@ -1,7 +1,8 @@
 import React from 'react';
-import Card from '../card';
-/* import fakeData from '../../config/fakeData.json'; */
 import axios from 'axios';
+
+import Card from '../Card';
+/* import fakeData from '../../config/fakeData.json'; */
 import './style.css';
 
 class Home extends React.Component {
@@ -50,7 +51,7 @@ class Home extends React.Component {
                 {
                     this.state.tripList.length !== 0
                     ? this.state.tripList.map((data) => {
-                        return <Card 
+                        return <Card
                             handleClick={this.handleClick}
                             handleThumbClick={this.handleThumbClick}
                             id={data.id}
@@ -69,7 +70,7 @@ class Home extends React.Component {
 /* const Home = (props) => (
     <div className="home">
         {fakeData.map((data) => {
-            return <Card 
+            return <Card
                 title={data.title}
                 price={data.price}
                 image={data.image}

@@ -7,6 +7,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Travel app',
+      inject: false,
       template: require('html-webpack-template'),
       appMountId: 'app',
       meta: {

@@ -1,8 +1,9 @@
 import React from 'react';
-import Header from '../header';
-import Home from '../home';
-import Details from '../details';
 import { Route, Switch } from 'react-router-dom';
+
+import Header from '../Header';
+import Home from '../Home';
+import Details from '../Details';
 
 const App = () => {
     /* console.log(props); */
