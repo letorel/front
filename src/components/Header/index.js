@@ -28,7 +28,6 @@ const activeStyle = {
 const Header = (props) => (
   <div className="header">
     <Link
-        exact
         to="/"
         className="logo"
     >
