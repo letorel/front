@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 import Card from '../Card';
-/* import fakeData from '../../config/fakeData.json'; */
+import fakeData from '../../config/fakeData.json';
 import './style.css';
 
 class Home extends React.Component {
@@ -11,6 +11,7 @@ class Home extends React.Component {
         this.state = {
             redirect: false,
             tripList: [
+              ...fakeData,
                 /* {
                     "title": "Grece",
                     "price": 350,
@@ -24,13 +25,13 @@ class Home extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:3016/trip')
-        .then((response) => {
-            const { data } = response.data;
-
-            this.setState({tripList : data});
-        })
-        .catch((error) => console.log(error));
+        // axios.get('http://localhost:3016/trip')
+        // .then((response) => {
+        //     const { data } = response.data;
+        //
+        //     this.setState({tripList : data});
+        // })
+        // .catch((error) => console.log(error));
     }
 
     handleClick(e) {

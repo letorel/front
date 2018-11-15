@@ -1,8 +1,14 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
-import './style.css';
+import logoImg from '../../assets/img/logo.jpg';
 
+import './style.less';
+
+const activeStyle = {
+  fontWeight: 'bold',
+  color: 'blue',
+};
 /* class Card extends React.Component {
     constructor() {
 
@@ -20,27 +26,47 @@ import './style.css';
 } */
 
 const Header = (props) => (
-    <div className="header">
+  <div className="header">
+    <Link
+        exact
+        to="/"
+        className="logo"
+    >
+      <img
+        src={logoImg}
+        alt="logo"
+      />
+    </Link>
+    <div className="navbar-container">
+      <div className="navbar">
         <NavLink
-            to="/details"
-            activeStyle={{
-                fontWeight: 'bold',
-                color: 'red',
-            }}
+          exact
+          to="/"
+          activeStyle={activeStyle}
         >
-            Details
+          Home
         </NavLink>
         <NavLink
-            exact
-            to="/"
-            activeStyle={{
-                fontWeight: 'bold',
-                color: 'red',
-            }}
+          to="/link1"
+          activeStyle={activeStyle}
         >
-            Home
+          Lien 1
         </NavLink>
+        <NavLink
+          to="/link2"
+          activeStyle={activeStyle}
+        >
+          Lien 2
+        </NavLink>
+        <NavLink
+          to="/link3"
+          activeStyle={activeStyle}
+        >
+          Lien 3
+        </NavLink>
+      </div>
     </div>
+  </div>
 );
 
 export default Header;

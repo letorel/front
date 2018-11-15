@@ -34,13 +34,16 @@ module.exports = {
         }],
       },
       {
-        test: /\.css$/,
+        test: /\.(css|less)$/,
         loaders: [
           {
             loader: 'style-loader',
           },
           {
             loader: 'css-loader',
+          },
+          {
+            loader: 'less-loader',
           },
         ],
       },
