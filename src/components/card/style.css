@@ -1,5 +1,5 @@
 div.card {
-    background-color: rgb(92, 64, 28);
+    background-color: rgb(231, 173, 96);
     height: 300px;
     width: 300px;
     text-align: center;
@@ -12,4 +12,8 @@ div.card > h1 {
 div.card > img {
     height: 150px;
     width: 150px;
+}
+
+div.card:hover {
+    cursor: pointer;
 }

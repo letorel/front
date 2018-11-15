@@ -7,6 +7,8 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Travel app',
+      template: require('html-webpack-template'),
+      appMountId: 'app',
       meta: {
         viewport: 'width=device-width, height=device-height,initial-scale=1, minimum-scale=1, maximum-scale=1, minimal-ui',
         description: 'Starter Pack for React application',

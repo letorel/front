@@ -1,4 +1,6 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import './style.css';
 
 /* class Card extends React.Component {
     constructor() {
@@ -18,7 +20,25 @@ import React from 'react';
 
 const Header = (props) => (
     <div className="header">
-        I am a header!
+        <NavLink
+            to="/details"
+            activeStyle={{
+                fontWeight: 'bold',
+                color: 'red',
+            }}
+        >
+            Details
+        </NavLink>
+        <NavLink
+            exact 
+            to="/"
+            activeStyle={{
+                fontWeight: 'bold',
+                color: 'red',
+            }}
+        >
+            Home
+        </NavLink>
     </div>
 );
 
