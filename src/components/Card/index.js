@@ -13,8 +13,8 @@ class Card extends React.Component {
   }
 
   handleThumbClick() {
-    const { counter } = this.state;
-    this.setState({ counter });
+    const { counter: lastCounter } = this.state;
+    this.setState({ counter: lastCounter + 1 });
   }
 
   render() {

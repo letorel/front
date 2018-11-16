@@ -59,7 +59,7 @@ class Details extends React.Component {
 }
 
 Details.propTypes = {
-  location: PropTypes.string.isRequired,
+  location: PropTypes.shape().isRequired,
 };
 
 export default Details;
