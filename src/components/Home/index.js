@@ -1,30 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import axios from 'axios';
+import axios from 'axios';
 
+// import fakeData from '../../config/fakeData.json';
 import Card from '../Card';
-import fakeData from '../../config/fakeData.json';
 import './style.css';
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tripList: [
-        ...fakeData,
-      ],
+      tripList: [],
     };
     this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
-    // axios.get('http://localhost:3016/trip')
-    // .then((response) => {
-    //     const { data } = response.data;
-    //
-    //     this.setState({tripList : data});
-    // })
-    // .catch((error) => console.log(error));
+    axios.get('http://localhost:3016/trip')
+    .then((response) => {
+        const { data } = response.data;
+        this.setState({ tripList: data });
+    })
+    .catch(() => this.setState({ tripList: [] }));
   }
 
   handleClick(e) {

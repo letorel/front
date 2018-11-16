@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import axios from 'axios';
+import axios from 'axios';
 
-import fakeData from '../../config/fakeData.json';
+// import fakeData from '../../config/fakeData.json';
 import './style.less';
 
 const getLastURLParams = (url) => {
@@ -13,20 +13,20 @@ const getLastURLParams = (url) => {
 class Details extends React.Component {
   constructor(props) {
     super(props);
-    const id = getLastURLParams(props.location.pathname.split('/'));
     this.state = {
-      trip: fakeData[id],
+      trip: {},
     };
   }
 
   componentDidMount() {
-    // const id = getLastURLParams(this.props.location.pathname.split('/'));
-    // axios.get(`http://localhost:3016/trip/${id}`)
-    // .then((response) => {
-    //   const { data } = response.data;
-    //   this.setState({trip : data});
-    // })
-    // .catch((error) => console.log(error));
+    const { location } = this.props;
+    const id = getLastURLParams(location.pathname.split('/'));
+    axios.get(`http://localhost:3016/trip/${id}`)
+    .then((response) => {
+      const { data } = response.data;
+      this.setState({ trip: data });
+    })
+    .catch(() => this.setState({ trip: {} }));
   }
 
   render() {
