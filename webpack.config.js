@@ -3,10 +3,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
-  mode: 'production',
+  mode: 'development',
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Travel app',
+      inject: false,
       template: require('html-webpack-template'),
       appMountId: 'app',
       meta: {
@@ -33,13 +34,16 @@ module.exports = {
         }],
       },
       {
-        test: /\.css$/,
+        test: /\.(css|less)$/,
         loaders: [
           {
             loader: 'style-loader',
           },
           {
             loader: 'css-loader',
+          },
+          {
+            loader: 'less-loader',
           },
         ],
       },

@@ -1,0 +1,43 @@
+div.card {
+  position: relative;
+  background-color: white;
+  height: 300px;
+  width: 300px;
+  text-align: center;
+  margin-bottom: 20px;
+  &:hover {
+      cursor: pointer;
+  }
+  & > h1 {
+    color: grey;
+  }
+  & > img {
+    max-height: 150px;
+    max-width: 150px;
+  }
+  footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    .price {
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      font-size: 18px;
+    }
+    img {
+      position: absolute;
+      right: 0px;
+      bottom: 20px;
+      width: 50px;
+      height: 50px;
+    }
+    .like {
+      position: absolute;
+      right: 0px;
+      bottom: 0px;
+      width: 50px;
+    }
+  }
+}
