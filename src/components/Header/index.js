@@ -25,11 +25,11 @@ const activeStyle = {
     }
 } */
 
-const Header = (props) => (
+const Header = () => (
   <div className="header">
     <Link
-        to="/"
-        className="logo"
+      to="/"
+      className="logo"
     >
       <img
         src={logoImg}

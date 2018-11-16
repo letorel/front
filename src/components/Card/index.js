@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import './style.less';
 
@@ -13,7 +13,7 @@ class Card extends React.Component {
   }
 
   handleThumbClick() {
-    const counter = this.state.counter + 1;
+    const { counter } = this.state;
     this.setState({ counter });
   }
 
@@ -25,10 +25,14 @@ class Card extends React.Component {
       price,
       handleClick,
     } = this.props;
+    const {
+      counter,
+    } = this.state;
+
     return (
       <div className="card">
         <h1>{title}</h1>
-        <img id={id} src={image} alt="country" onClick={handleClick}/>
+        <img id={id} src={image} alt="country" onClick={handleClick} />
         <footer>
           <span className="price">{price}$</span>
           <img
@@ -36,11 +40,27 @@ class Card extends React.Component {
             alt="thumbLogo"
             onClick={this.handleThumbClick}
           />
-          <span className="like">{this.state.counter}</span>
+          <span className="like">{counter}</span>
         </footer>
       </div>
     );
   }
 }
+
+Card.propTypes = {
+  title: PropTypes.string,
+  id: PropTypes.number,
+  image: PropTypes.string,
+  price: PropTypes.number,
+  handleClick: PropTypes.func,
+};
+
+Card.defaultProps = {
+  title: 'Title',
+  id: 0,
+  image: '',
+  price: 0,
+  handleClick: () => {},
+};
 
 export default Card;

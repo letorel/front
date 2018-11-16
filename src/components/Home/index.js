@@ -1,5 +1,6 @@
 import React from 'react';
-import axios from 'axios';
+import PropTypes from 'prop-types';
+// import axios from 'axios';
 
 import Card from '../Card';
 import fakeData from '../../config/fakeData.json';
@@ -11,14 +12,9 @@ class Home extends React.Component {
     this.state = {
       tripList: [
         ...fakeData,
-        /* {
-          "title": "Grece",
-          "price": 350,
-          "image": "https://img-4.linternaute.com/-6ZSS_niygj0fM3DgK5HdFSdc3k=/1240x/smart/11c68cc2e0d04c1d936baf0c2de3ea65/ccmcms-linternaute/10666064.jpg"
-        }, */
       ],
     };
-    this.handleClick=this.handleClick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -32,17 +28,19 @@ class Home extends React.Component {
   }
 
   handleClick(e) {
-    this.props.history.push(`/details/${e.currentTarget.id}`);
+    const { history } = this.props;
+    history.push(`/details/${e.currentTarget.id}`);
   }
 
   render() {
+    const { tripList } = this.state;
       return (
         <div className="home">
           {
-            this.state.tripList.length !== 0
-              ? this.state.tripList.map((data, key) => (
+            tripList.length !== 0
+              ? tripList.map(data => (
                 <Card
-                  key={key}
+                  key={data.id}
                   handleClick={this.handleClick}
                   id={data.id}
                   title={data.title}
@@ -53,8 +51,12 @@ class Home extends React.Component {
             : 'No data to display'
           }
         </div>
-      )
+      );
     }
   }
+
+Home.propTypes = {
+  history: PropTypes.shape().isRequired,
+};
 
 export default Home;
